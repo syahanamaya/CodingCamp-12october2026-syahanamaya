@@ -788,7 +788,8 @@ section {
   font-size: 0.8125rem;
 }
 
-#todo-add {
+#todo-add,
+#todo-add-f {
   width: 34px; height: 34px;
   padding: 0;
   background: var(--accent);
@@ -800,8 +801,11 @@ section {
   flex-shrink: 0;
 }
 
-#todo-add svg { width: 15px; height: 15px; }
-#todo-add:hover { background: var(--accent-hover); transform: scale(1.05); }
+#todo-add svg,
+#todo-add-f svg { width: 15px; height: 15px; }
+
+#todo-add:hover,
+#todo-add-f:hover { background: var(--accent-hover); transform: scale(1.05); }
 
 /* Error */
 #todo-error {
