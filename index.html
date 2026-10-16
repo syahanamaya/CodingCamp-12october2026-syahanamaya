@@ -9,36 +9,20 @@
   </head>
   <body>
 
-    <!-- Storage warning banner (hidden by default) -->
+    <!-- Storage warning banner -->
     <div id="storage-warning" role="alert" aria-live="polite" hidden>
-      ⚠️ localStorage tidak tersedia. Data tidak akan disimpan.
+      Peringatan: localStorage tidak tersedia. Data tidak akan disimpan.
     </div>
 
-    <!-- ===== CUSTOM NAME MODAL ===== -->
-    <div id="name-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-      <div class="modal-box">
-        <h3 id="modal-title">Siapa namamu? 👋</h3>
-        <p class="modal-desc">Nama akan ditampilkan di halaman utama dashboard.</p>
-        <div class="modal-field">
-          <label for="modal-name-input" class="visually-hidden">Nama kamu</label>
-          <input id="modal-name-input" type="text" placeholder="Masukkan nama kamu..." maxlength="30" autocomplete="off" />
-          <p id="modal-name-error" class="modal-error" role="alert" aria-live="polite"></p>
-        </div>
-        <div class="modal-actions">
-          <button id="modal-save-btn" type="button" class="btn-primary">Simpan</button>
-          <button id="modal-cancel-btn" type="button" class="btn-ghost">Batal</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- App Shell -->
     <div class="app-shell">
 
       <!-- ===== SIDEBAR ===== -->
       <aside class="sidebar" aria-label="Navigasi">
         <div class="sidebar-brand">
           <div class="sidebar-brand-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
           </div>
           <div class="sidebar-brand-text">
             <span class="sidebar-brand-name">Life Dashboard</span>
@@ -47,30 +31,37 @@
         </div>
 
         <nav class="sidebar-nav" aria-label="Menu utama">
-          <a href="#" class="sidebar-nav-item sidebar-nav-item--active" aria-current="page">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <button type="button" class="sidebar-nav-item sidebar-nav-item--active" data-view="home" aria-current="page">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
             <span>Home</span>
-          </a>
-          <a href="#todo-section" class="sidebar-nav-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            <span>To-Do List</span>
-          </a>
-          <a href="#focus-timer-section" class="sidebar-nav-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Focus Timer</span>
-          </a>
-          <a href="#links-section" class="sidebar-nav-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-            <span>Quick Links</span>
-          </a>
-        </nav>
-
-        <div class="sidebar-footer">
-          <button type="button" class="sidebar-nav-item" id="settings-btn" aria-label="Buka pengaturan nama">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-            <span>Settings</span>
           </button>
-        </div>
+
+          <button type="button" class="sidebar-nav-item" data-view="todo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            <span>To-Do List</span>
+          </button>
+
+          <button type="button" class="sidebar-nav-item" data-view="timer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>Focus Timer</span>
+          </button>
+
+          <button type="button" class="sidebar-nav-item" data-view="links">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+            <span>Quick Links</span>
+          </button>
+        </nav>
       </aside>
 
       <!-- ===== MAIN CONTENT ===== -->
@@ -78,52 +69,71 @@
 
         <!-- Top Bar -->
         <header class="topbar" aria-label="Bilah atas">
+          <!-- Page title shown when not in Home view -->
+          <div class="topbar-left">
+            <span id="topbar-title" class="topbar-title" aria-live="polite"></span>
+          </div>
           <div class="topbar-right">
-            <!-- Theme toggle -->
-            <button
-              id="theme-toggle-btn"
-              class="theme-toggle"
-              type="button"
-              aria-label="Ganti tema terang/gelap"
-              title="Ganti tema"
-            >
-              <!-- Sun icon (light) -->
-              <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-              <span class="toggle-track" aria-hidden="true"><span class="toggle-knob"></span></span>
-              <!-- Moon icon (dark) -->
-              <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <button id="theme-toggle-btn" class="theme-toggle-btn" type="button"
+              aria-label="Ganti tema terang/gelap" title="Ganti tema">
+              <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+              <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+              <span class="theme-toggle-track" aria-hidden="true">
+                <span class="theme-toggle-knob"></span>
+              </span>
             </button>
-
-            <!-- Avatar / name button -->
-            <button class="avatar-btn" id="avatar-btn" type="button" aria-label="Ubah nama pengguna" title="Klik untuk mengubah nama">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            <button class="avatar-btn" aria-label="Profil pengguna" type="button">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+              </svg>
             </button>
           </div>
         </header>
 
-        <!-- Dashboard Grid -->
-        <div class="dashboard-grid">
+        <!-- ===== VIEW: HOME (semua modul) ===== -->
+        <div class="dashboard-grid view-panel" id="view-home">
 
-          <!-- ===== LEFT COLUMN ===== -->
+          <!-- LEFT COLUMN -->
           <div class="dashboard-col-left">
 
-            <!-- Widget 1: Greeting / Clock -->
-            <section id="greeting-clock-widget" aria-label="Jam dan Salam" class="greeting-banner">
+            <!-- Greeting Banner -->
+            <section id="greeting-clock-widget" aria-label="Jam dan Salam">
               <div class="greeting-banner-content">
                 <div class="greeting-text">
                   <p id="greeting" class="greeting-salutation">Selamat Pagi,</p>
-                  <h1 class="greeting-name">
-                    <span id="greeting-user-name">Maya</span>
-                    <span aria-hidden="true">👋</span>
-                  </h1>
+                  <div class="greeting-name-row">
+                    <h1 id="greeting-name-display" class="greeting-name">
+                      <span id="greeting-name-text">Maya</span>
+                      <span class="greeting-wave" aria-hidden="true">👋</span>
+                    </h1>
+                    <button id="greeting-name-edit-btn" class="name-edit-btn" type="button" aria-label="Edit nama" title="Edit nama">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <div id="greeting-name-form" class="greeting-name-form" hidden>
+                    <input id="greeting-name-input" type="text" class="greeting-name-input"
+                      placeholder="Masukkan namamu..." maxlength="30" aria-label="Edit nama"/>
+                    <button type="button" id="greeting-name-save" class="name-save-btn" aria-label="Simpan nama">&#10003;</button>
+                    <button type="button" id="greeting-name-cancel" class="name-cancel-btn" aria-label="Batal">&#10005;</button>
+                  </div>
                   <p class="greeting-motivasi">Semangat untuk hari ini!<br>Yuk, wujudkan hal-hal baik yang sudah kamu rencanakan.</p>
                 </div>
                 <div class="greeting-clock-block">
-                  <time id="clock" class="greeting-clock" aria-label="Jam saat ini">00:00</time>
-                  <p id="date" class="greeting-date" aria-label="Tanggal hari ini"></p>
+                  <time id="clock" aria-label="Jam saat ini">00:00</time>
+                  <p id="date" aria-label="Tanggal hari ini"></p>
                 </div>
               </div>
-              <!-- Scenic illustration -->
               <div class="greeting-scene" aria-hidden="true">
                 <div class="scene-sky"></div>
                 <div class="scene-sun"></div>
@@ -137,53 +147,53 @@
               </div>
             </section>
 
-            <!-- Widget 3: To-Do List -->
+            <!-- To-Do List -->
             <section id="todo-section" aria-label="Daftar Tugas">
               <div class="widget-header">
                 <div class="widget-title">
-                  <svg class="widget-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><polyline points="9 12 11 14 15 10"/></svg>
+                  <svg class="widget-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="3"/>
+                    <polyline points="9 12 11 14 15 10"/>
+                  </svg>
                   <h2>To-Do List</h2>
                 </div>
                 <div class="todo-input-area">
                   <label for="todo-input" class="visually-hidden">Tambah tugas baru</label>
-                  <input id="todo-input" type="text" placeholder="Tambah tugas baru..." aria-describedby="todo-error" />
+                  <input id="todo-input" type="text" placeholder="Tambah tugas baru..."
+                    aria-describedby="todo-error" autocomplete="off"/>
                   <button id="todo-add" type="button" aria-label="Tambah tugas">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
                   </button>
                 </div>
               </div>
-
               <p id="todo-error" role="alert" aria-live="polite"></p>
-
-              <!-- Filter tabs -->
               <div class="todo-filters">
-                <div class="todo-filter-tabs">
+                <div class="todo-filter-tabs" role="group" aria-label="Filter tugas">
                   <button type="button" class="filter-tab filter-tab--active" data-filter="all">Semua</button>
                   <button type="button" class="filter-tab" data-filter="active">Aktif</button>
                   <button type="button" class="filter-tab" data-filter="done">Selesai</button>
                 </div>
-                <button type="button" class="sort-btn" aria-label="Urutkan">
-                  Urutkan
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
               </div>
-
-              <ul id="todo-list" aria-label="Daftar tugas"></ul>
+              <ul id="todo-list" aria-label="Daftar tugas" aria-live="polite"></ul>
             </section>
 
           </div><!-- /.dashboard-col-left -->
 
-          <!-- ===== RIGHT COLUMN ===== -->
+          <!-- RIGHT COLUMN -->
           <div class="dashboard-col-right">
 
-            <!-- Widget 2: Focus Timer -->
+            <!-- Focus Timer -->
             <section id="focus-timer-section" aria-label="Focus Timer">
-              <div class="widget-title widget-title--gap">
-                <svg class="widget-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div class="widget-title widget-title--spaced">
+                <svg class="widget-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
                 <h2>Focus Timer</h2>
               </div>
-
-              <div class="timer-ring-wrapper" role="img" aria-label="Cincin timer">
+              <div class="timer-ring-wrapper" role="img" aria-label="Timer Pomodoro">
                 <svg class="timer-ring-svg" viewBox="0 0 120 120" aria-hidden="true">
                   <circle class="timer-ring-track" cx="60" cy="60" r="52"/>
                   <circle class="timer-ring-progress" cx="60" cy="60" r="52"/>
@@ -193,7 +203,6 @@
                   <p id="timer-status" aria-live="polite">Ready</p>
                 </div>
               </div>
-
               <div class="timer-controls">
                 <button id="timer-start" type="button" class="timer-btn-primary">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -201,54 +210,54 @@
                 </button>
                 <div class="timer-btn-row">
                   <button id="timer-reset" type="button" class="timer-btn-secondary">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="4" height="4" rx="1"/></svg>
                     Reset
                   </button>
                   <button id="timer-stop" type="button" class="timer-btn-secondary">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="8" y1="6" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="18"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="8" y1="6" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="18"/></svg>
                     Stop
                   </button>
                 </div>
               </div>
             </section>
 
-            <!-- Widget 4: Quick Links -->
+            <!-- Quick Links -->
             <section id="links-section" aria-label="Tautan Cepat">
               <div class="widget-header">
                 <div class="widget-title">
-                  <svg class="widget-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                  <svg class="widget-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                  </svg>
                   <h2>Quick Links</h2>
                 </div>
-                <button class="icon-btn" type="button" aria-label="Tambah tautan baru" id="links-show-form-btn" aria-expanded="false">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <button class="icon-btn" type="button" aria-label="Tambah tautan" id="links-show-form-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
                 </button>
               </div>
-
-              <!-- Add link form -->
               <div class="links-input-area links-form-collapsed" id="links-form-area">
-                <div class="links-form-row">
-                  <div class="links-field">
-                    <label for="links-name-input">Nama</label>
-                    <input id="links-name-input" type="text" placeholder="Nama tampilan..." aria-describedby="links-name-error" />
-                    <p id="links-name-error" role="alert" aria-live="polite"></p>
-                  </div>
-                  <div class="links-field">
-                    <label for="links-url-input">URL</label>
-                    <input id="links-url-input" type="url" placeholder="https://..." aria-describedby="links-url-error" />
-                    <p id="links-url-error" role="alert" aria-live="polite"></p>
-                  </div>
+                <div class="links-field">
+                  <label for="links-name-input">Nama</label>
+                  <input id="links-name-input" type="text" placeholder="Nama tampilan..." aria-describedby="links-name-error"/>
+                  <p id="links-name-error" role="alert" aria-live="polite"></p>
                 </div>
-                <button id="links-add-btn" type="button" class="btn-primary btn-sm">Tambah Link</button>
+                <div class="links-field">
+                  <label for="links-url-input">URL</label>
+                  <input id="links-url-input" type="url" placeholder="https://..." aria-describedby="links-url-error"/>
+                  <p id="links-url-error" role="alert" aria-live="polite"></p>
+                </div>
+                <button id="links-add-btn" type="button">Simpan</button>
               </div>
-
-              <div id="links-container" aria-label="Daftar tautan cepat"></div>
+              <div id="links-container" aria-label="Daftar tautan cepat" aria-live="polite"></div>
             </section>
 
-            <!-- Motivational Quote -->
+            <!-- Quote card -->
             <div class="quote-card" aria-label="Kutipan motivasi">
               <div class="quote-content">
                 <span class="quote-mark" aria-hidden="true">"</span>
-                <p class="quote-text">"Hal kecil yang kamu lakukan hari ini, bisa membawa perubahan besar di masa depan."</p>
+                <p class="quote-text">Hal kecil yang kamu lakukan hari ini, bisa membawa perubahan besar di masa depan.</p>
               </div>
               <div class="quote-illustration" aria-hidden="true">
                 <div class="quote-plant"></div>
@@ -257,8 +266,121 @@
             </div>
 
           </div><!-- /.dashboard-col-right -->
+        </div><!-- /#view-home -->
 
-        </div><!-- /.dashboard-grid -->
+        <!-- ===== VIEW: TO-DO LIST (fokus) ===== -->
+        <div class="view-panel view-panel--hidden view-panel--focused" id="view-todo">
+          <div class="focused-layout">
+            <section id="todo-section-focused" aria-label="Daftar Tugas">
+              <div class="widget-header">
+                <div class="widget-title">
+                  <svg class="widget-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="3"/>
+                    <polyline points="9 12 11 14 15 10"/>
+                  </svg>
+                  <h2>To-Do List</h2>
+                </div>
+                <div class="todo-input-area">
+                  <label for="todo-input-f" class="visually-hidden">Tambah tugas baru</label>
+                  <input id="todo-input-f" type="text" placeholder="Tambah tugas baru..."
+                    aria-describedby="todo-error-f" autocomplete="off"/>
+                  <button id="todo-add-f" type="button" aria-label="Tambah tugas">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <p id="todo-error-f" role="alert" aria-live="polite"></p>
+              <div class="todo-filters">
+                <div class="todo-filter-tabs" role="group" aria-label="Filter tugas">
+                  <button type="button" class="filter-tab filter-tab--active" data-filter="all">Semua</button>
+                  <button type="button" class="filter-tab" data-filter="active">Aktif</button>
+                  <button type="button" class="filter-tab" data-filter="done">Selesai</button>
+                </div>
+              </div>
+              <ul id="todo-list-f" aria-label="Daftar tugas" aria-live="polite"></ul>
+            </section>
+          </div>
+        </div><!-- /#view-todo -->
+
+        <!-- ===== VIEW: FOCUS TIMER (fokus) ===== -->
+        <div class="view-panel view-panel--hidden view-panel--focused" id="view-timer">
+          <div class="focused-layout focused-layout--center">
+            <section id="focus-timer-section-focused" aria-label="Focus Timer">
+              <div class="widget-title widget-title--spaced">
+                <svg class="widget-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <h2>Focus Timer</h2>
+              </div>
+              <div class="timer-ring-wrapper timer-ring-wrapper--large" role="img" aria-label="Timer Pomodoro">
+                <svg class="timer-ring-svg" viewBox="0 0 160 160" aria-hidden="true">
+                  <circle class="timer-ring-track" cx="80" cy="80" r="70"/>
+                  <circle class="timer-ring-progress timer-ring-progress--large" cx="80" cy="80" r="70"/>
+                </svg>
+                <div class="timer-ring-inner">
+                  <time id="timer-display-f" aria-label="Waktu tersisa">25:00</time>
+                  <p id="timer-status-f" aria-live="polite">Ready</p>
+                </div>
+              </div>
+              <div class="timer-controls">
+                <button id="timer-start-f" type="button" class="timer-btn-primary">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  Start
+                </button>
+                <div class="timer-btn-row">
+                  <button id="timer-reset-f" type="button" class="timer-btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="4" height="4" rx="1"/></svg>
+                    Reset
+                  </button>
+                  <button id="timer-stop-f" type="button" class="timer-btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="8" y1="6" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="18"/></svg>
+                    Stop
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div><!-- /#view-timer -->
+
+        <!-- ===== VIEW: QUICK LINKS (fokus) ===== -->
+        <div class="view-panel view-panel--hidden view-panel--focused" id="view-links">
+          <div class="focused-layout">
+            <section id="links-section-focused" aria-label="Tautan Cepat">
+              <div class="widget-header">
+                <div class="widget-title">
+                  <svg class="widget-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                  </svg>
+                  <h2>Quick Links</h2>
+                </div>
+                <button class="icon-btn" type="button" aria-label="Tambah tautan" id="links-show-form-btn-f">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="links-input-area links-form-collapsed" id="links-form-area-f">
+                <div class="links-field">
+                  <label for="links-name-input-f">Nama</label>
+                  <input id="links-name-input-f" type="text" placeholder="Nama tampilan..." aria-describedby="links-name-error-f"/>
+                  <p id="links-name-error-f" role="alert" aria-live="polite"></p>
+                </div>
+                <div class="links-field">
+                  <label for="links-url-input-f">URL</label>
+                  <input id="links-url-input-f" type="url" placeholder="https://..." aria-describedby="links-url-error-f"/>
+                  <p id="links-url-error-f" role="alert" aria-live="polite"></p>
+                </div>
+                <button id="links-add-btn-f" type="button">Simpan</button>
+              </div>
+              <div id="links-container-f" aria-label="Daftar tautan cepat" aria-live="polite"></div>
+            </section>
+          </div>
+        </div><!-- /#view-links -->
+
       </div><!-- /.main-content -->
     </div><!-- /.app-shell -->
 
